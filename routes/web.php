@@ -15,5 +15,17 @@ use App\Http\Controllers\Member;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('website.dashboard');
+});
+
+Route::get('/member', function () {
+    return view('website.member');
+});
+
+Route::get('/staff', function () {
+    return view('website.staff');
+});
+
+Route::get('/transaksi', function () {
+    return view('website.transaksi');
 });
