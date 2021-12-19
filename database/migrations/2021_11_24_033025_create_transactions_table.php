@@ -15,12 +15,15 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('member_id', 16);
-            $table->foreign('member_id')->references('NIK')->on('members')->onDelete('restrict');
-            $table->decimal('amount', 9, 3);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
             $table->date('date');
+            $table->string('type');
+            $table->decimal('save_sw', 12, 3)->nullable();
+            $table->decimal('save_ss', 12, 3)->nullable();
+            $table->decimal('loan', 12, 3)->nullable();
+            $table->string('member_id', 16);
+            $table->foreign('member_id')->references('member_id')->on('members')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

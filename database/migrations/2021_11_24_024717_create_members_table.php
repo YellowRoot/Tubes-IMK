@@ -14,12 +14,14 @@ class CreateMembersTable extends Migration
     public function up()
     {
         Schema::create('members', function (Blueprint $table) {
-            $table->string('NIK', 16)->primary();
-            $table->string('name');
+            $table->string('member_id', 16)->primary();
+            $table->string('member_name');
             $table->string('pob');
             $table->date('dob');
             $table->string('address');
             $table->string('telp_no', 13);
+            $table->decimal('balance_sw', 12, 3)->default(0);
+            $table->decimal('balance_ss', 12, 3)->default(0);
             $table->timestamps();
         });
     }
