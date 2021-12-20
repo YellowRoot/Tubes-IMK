@@ -46,6 +46,14 @@
     </style>
 
     <!-- Page Heading -->
+
+    @if(session('message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button> 
+            {{session('message')}}
+        </div>
+    @endif
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Staff</h1>
         <a href="/staff/tambah" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i

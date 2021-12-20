@@ -76,7 +76,7 @@ class TransaksiController extends Controller
                                 );
                 
 
-            return redirect()->intended('transaksi');
+            return redirect()->intended('transaksi')->with('message', 'Data berhasil disimpan!');
         }
         else 
         {
@@ -106,7 +106,7 @@ class TransaksiController extends Controller
                                 ]
                                 );
 
-            return redirect()->intended('transaksi');
+            return redirect()->intended('transaksi')->with('message', 'Data berhasil disimpan!');
         }
 
     }
@@ -126,6 +126,6 @@ class TransaksiController extends Controller
     {
         DB::table('transactions')->where('id', '=', $id)->delete();
 
-        return redirect()->intended('transaksi');
+        return redirect()->intended('transaksi')->with('message', 'Data berhasil dihapus!');
     }
 }

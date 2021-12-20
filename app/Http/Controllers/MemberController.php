@@ -51,7 +51,7 @@ class MemberController extends Controller
         $member->telp_no = $req->member_telpNo;
         $member->save();
         
-        return redirect()->intended('member');
+        return redirect()->intended('member')->with('message', 'Data berhasil disimpan!');
     }
     
     function profile($member_id)
@@ -87,13 +87,13 @@ class MemberController extends Controller
                         'telp_no' => $req->member_telpNo,
                     ]);
 
-        return redirect()->intended('member');
+        return redirect()->intended('member')->with('message', 'Data berhasil diubah!');
     }
 
     function delete($member_id)
     {
         DB::table('members')->where('member_id', '=', $member_id)->delete();
 
-        return redirect()->intended('member');
+        return redirect()->intended('member')->with('message', 'Data berhasil dihapus!');
     }
 }

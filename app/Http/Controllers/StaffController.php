@@ -49,7 +49,7 @@ class StaffController extends Controller
         $user->password = Hash::make($req->password);
         $user->save();
 
-        return redirect()->intended('staff');
+        return redirect()->intended('staff')->with('message', 'Data berhasil disimpan!');
     }
 
     function profile($id)
@@ -91,13 +91,13 @@ class StaffController extends Controller
                         'password' => Hash::make($req->password),
                     ]);
 
-        return redirect()->intended('staff');
+        return redirect()->intended('staff')->with('message', 'Data berhasil diubah!');
     }
 
     function delete($id)
     {
         DB::table('users')->where('id', '=', $id)->delete();
 
-        return redirect()->intended('staff');
+        return redirect()->intended('staff')->with('message', 'Data berhasil dihapus!');
     }
 }
